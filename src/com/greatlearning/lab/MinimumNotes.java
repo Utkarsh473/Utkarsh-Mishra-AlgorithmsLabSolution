@@ -32,9 +32,11 @@ public class MinimumNotes {
 		ms.mergeSort(0,notes.length-1,notes);
 		
 		//print the sorted array
+		/*
 		System.out.println("Sorted denomination array:");
 		for (int i=0;i<notes.length;i++)
 		System.out.println(notes[i]);
+		*/
 		
 		//algorithm to find the minimum number of notes
 		int index = 0;
@@ -44,14 +46,18 @@ public class MinimumNotes {
 		while(index<len)
 		{
 
+				//increase index of the array while amount remains lesser than the individual array elements
 				while(index<len&&amt<notes[index])
 					index++;
 				
+				//break if end of array is reached
 				if(index>=len)
 					break;
 				else
 				{
+				// extract the number of notes by dividing amount by notes of index	
 				int numOfNotes = amt/notes[index];
+				// reduce the amount after note extraction
 				amt = amt%notes[index];
 				System.out.println(notes[index]+":"+numOfNotes);
 				index++;
